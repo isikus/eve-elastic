@@ -53,7 +53,6 @@ def format_doc(hit, schema, dates):
     """Format given doc to match given schema."""
     doc = hit.get("_source", {})
     doc.setdefault(config.ID_FIELD, hit.get("_id"))
-    doc["_type"] = doc.pop(RESOURCE_FIELD)
     if hit.get("highlight"):
         doc["es_highlight"] = hit.get("highlight")
 
